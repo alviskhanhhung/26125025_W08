@@ -1,10 +1,6 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-struct Node {
-    int data;
-    Node* next;
-};
 /*
     INPUT                      | OUTPUT
 #TEST CASE 1: Base case to see if the function works properly
@@ -19,6 +15,10 @@ cin: 5                         |
 input.txt: 7 7 7 0             | output.txt: 0
 cin: 7                         |
 */
+struct Node {
+    int data;
+    Node* next;
+};
 void deleteElementWithValueK(Node*& pHead, int k) {
     while (pHead != nullptr && pHead -> data == k) {
         Node* temp{pHead};
@@ -58,10 +58,8 @@ int main() {
         }
     }
     inFile.close();
-
     int x; cin >> x;
     deleteElementWithValueK(pHead, x);
-
     pCurr = pHead;
     ofstream outFile;
     outFile.open("output.txt");
@@ -77,6 +75,5 @@ int main() {
         pCurr = pCurr -> next;
         delete temp;
     }
-
     return 0;
 }
